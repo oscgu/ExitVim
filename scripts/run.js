@@ -1,23 +1,23 @@
 const main = async () => {
     const [owner, randomPerson] = await hre.ethers.getSigners();
-    const waveContractFactory = await hre.ethers.getContractFactory('WavePortal');
-    const waveContract = await waveContractFactory.deploy();
+    const vimContractFactory = await hre.ethers.getContractFactory('Vim');
+    const vimContract = await vimContractFactory.deploy();
 
-    console.log("Contract deployed to:", waveContract.address);
+    console.log("Contract deployed to:", vimContract.address);
     console.log("Contract deployed by:", owner.address);
 
-    let waveCount;
-    waveCount = await waveContract.getTotalWaves();
+    let exitCount;
+    exitCount = await vimContract.getTotalExits();
 
-    let waveTxn = await waveContract.wave();
-    await waveTxn.wait();
+    let exitTxn = await vimContract.exitVim();
+    await exitTxn.wait();
 
-    waveCount = await waveContract.getTotalWaves();
+    exitCount = await vimContract.getTotalExits();
 
-    waveTxn = await waveContract.connect(randomPerson).wave();
-    await waveTxn.wait();
+    exitTxn = await vimContract.connect(randomPerson).exitVim();
+    await exitTxn.wait();
 
-    waveCount = await waveContract.getTotalWaves();
+    exitCount = await vimContract.getTotalExits();
 };
 
 const runMain = async () => {
