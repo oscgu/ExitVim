@@ -1,0 +1,112 @@
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 64px;
+}
+
+.dataContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 600px;
+}
+
+.header {
+  cursor: default;
+  color: green;
+  text-align: center;
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.stackoverflow {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.stackoverflow a{
+  color: #FFFF;
+  opacity: 70%;
+}
+.exitCount {
+  color: #FFFF;
+  opacity: 70%;
+  position:absolute;
+  margin-left: 10px;
+  top: 0;
+  left: 0;
+}
+
+.exitButton {
+  margin: 0 auto;
+  width: 304px;
+  background-color: #AEAEAE;
+  cursor: pointer;
+  margin-top: 16px;
+  padding: 8px;
+  border: 0;
+}
+
+.exitMessages {
+  cursor: default;
+  color: #FFFF;
+  opacity: 70%;
+  background-color: #333333;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.accountAddress {
+  color: #FFFF;
+  opacity: 70%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding-right: 5px;
+}
+
+.connectButton {
+  background-color: #AEAEAE;
+  width: 200px;
+  height: 50px;
+  position:absolute;
+  top: 0;
+  right: 0;
+  font-size: 20px;
+  margin-top: 16px;
+  margin-right: 10px;
+  border: 0;
+  cursor: pointer;
+}
+
+.vimBar {
+  background-color: #AEAEAE;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.vimBarInner {
+  color: black;
+  font-weight: bold;
+  text-align: left;
+  padding-left: 5px;
+}
+
+.messageBox {
+  margin: 0 auto;
+}
+
+.messageBox textarea {
+  color: #FFFF;
+  opacity: 70%;
+  background-color: #333333;
+  margin-top: 20px;
+  height: 100px;
+  width: 300px;
+  outline-width: 0px;
+  border-width: 0px;
+  resize: none;
+}

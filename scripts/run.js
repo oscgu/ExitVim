@@ -1,23 +1,35 @@
 const main = async () => {
-    const [owner, randomPerson] = await hre.ethers.getSigners();
     const vimContractFactory = await hre.ethers.getContractFactory('Vim');
-    const vimContract = await vimContractFactory.deploy();
-
+    const vimContract = await vimContractFactory.deploy({
+        value: hre.ethers.utils.parseEther('0.1'),
+    });
+    await vimContract.deployed();
     console.log("Contract deployed to:", vimContract.address);
-    console.log("Contract deployed by:", owner.address);
 
-    let exitCount;
-    exitCount = await vimContract.getTotalExits();
+    let contractBalance = await hre.ethers.provider.getBalance(
+        vimContract.address
+    );
+    console.log(
+        'Contract bal:',
+        hre.ethers.utils.formatEther(contractBalance)
+    );
 
-    let exitTxn = await vimContract.exitVim();
+    const exitTxn = await vimContract.exitVim('Heeeelp! 1');
     await exitTxn.wait();
 
-    exitCount = await vimContract.getTotalExits();
+    const exitTxn2 = await vimContract.exitVim('Heeeelp! 2');
+    await exitTxn2.wait();
 
-    exitTxn = await vimContract.connect(randomPerson).exitVim();
-    await exitTxn.wait();
+    contractBalance = await hre.ethers.provider.getBalance(
+        vimContract.address
+    );
+    console.log(
+        'Contract bal:',
+        hre.ethers.utils.formatEther(contractBalance)
+    );
 
-    exitCount = await vimContract.getTotalExits();
+    let allExits = await vimContract.getAllExits();
+    console.log(allExits);
 };
 
 const runMain = async () => {
