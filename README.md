@@ -3,6 +3,14 @@
 
 A test project for learning web3 development
 
+## Setup
+
+Create a .env file with the following content
+```
+STAGING_ALCHEMY_KEY= Your alchemy api key
+PRIVATE_KEY= Your wallet key
+```
+
 ## Contract commands
 
 ```
